@@ -27,21 +27,21 @@ if __name__ == "__main__":
         with open(log_file,"r") as f:
             print("로그 출력",f.read())
     except Exception as err:
-        print(f"파일 읽기 오류: {err}")
+        print(f"오류: {err}")
         exit()
     
     logs = r_file(log_file)
     
     if logs:
         print("전환된 리스트 출력\n",logs) #전환된 리스트 출력
-        logs.sort(reverse=True, key=lambda x: x["timestamp"])#리스트 시간기준으로 역순 정렬
-        logs_dict=list_dict(logs)
-        s_json(j_file, logs_dict)
+        logs.sort(reverse = True, key = lambda x: x["timestamp"])#리스트 시간기준으로 역순 정렬
+        logs_dict = list_dict(logs) #리스트를 딕셔너리로 전환환
+        s_json(j_file, logs_dict) #전환된 딕셔너리를 JSON파일로 저장
         
-        keyword = input("검색할 문자열을 입력하세요: ")
+        keyword = input("검색할 문자열을 입력하세요: ") #   +++보너스과제
         filtered_logs = input_keyword(logs, keyword)
         
-        if filtered_logs:
+        if filtered_logs:   #문자열을 입력받아 로그에 있는 해당 키워드를 찾아냄
             print(f"'{keyword}' 포함된 로그 메시지:")
             for log in filtered_logs:
                 print(f"Timestamp: {log['timestamp']}, Message: {log['message']}")
