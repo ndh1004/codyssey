@@ -25,16 +25,17 @@ def sphere_area(diameter, material='유리', thickness=1):
     return round(area, 3), round(weight, 3)
 
 while True:
-    
-    diameter = input('돔의 지름(m)을 입력하세요 (종료: exit): ')
-    if diameter.lower() == 'exit':
-        break
     material = input('재질을 입력하세요 (유리, 알루미늄, 탄소강) (종료: exit): ')
     if material.lower() == 'exit':
+        break
+    diameter = input('돔의 지름(m)을 입력하세요 (종료: exit): ')
+    if diameter.lower() == 'exit':
         break
     thickness = input('두께(cm)를 입력하세요 (종료: exit): ')
     if thickness.lower() == 'exit':
         break
+    
     area, weight = sphere_area(diameter, material, thickness)
+    
     if area > 0:
-        print(f'\n재질 ==> {material}, 지름 ==> {diameter}, 두께 ==> {thickness}, 면적 ==> {area}, 무게 ==> {weight} kg\n')
+        print(f'\n재질 ==> {material}, 지름 ==> {diameter}m, 두께 ==> {thickness}cm, 면적 ==> {area}cm², 무게 ==> {weight}kg\n')
