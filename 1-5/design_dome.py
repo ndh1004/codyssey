@@ -31,7 +31,7 @@ parts_mean = np.mean(parts, axis=1)
 # 평균값 < 50 추출
 parts_to_work_on = parts[parts_mean < 50]
 
-# parts_to_work_on.csv 만들어 저장장
+# parts_to_work_on.csv 만들어 저장
 try:
     np.savetxt('parts_to_work_on.csv', parts_to_work_on, delimiter=',', fmt='%.2f')
 except Exception as e:
